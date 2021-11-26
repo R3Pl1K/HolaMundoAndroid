@@ -1,33 +1,162 @@
 package com.alexia.guerra.holamundoandroid;
 
+import static android.widget.Toast.*;
+
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 
+//Guerra Carrillo Alexia Berenice 5IM9
 public class MainActivity extends AppCompatActivity {
 
-    private Button buttonSuma;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        buttonSuma = findViewById(R.id.buttonSuma );
-        buttonSuma.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                abrirSuma( );
+    }
+
+    Double numero1,numero2,resultado;
+    String operador;
+
+    public void onClickButtonOne(View miView){
+        TextView tv = findViewById(R.id.textView);
+        String value = tv.getText().toString();
+        tv.setText(value + "1");
+
+    }
+    public void onClickButtonTwo(View miView){
+        TextView tv = findViewById(R.id.textView);
+        String value = tv.getText().toString();
+        tv.setText(value + "2");
+    }
+    public void onClickButtonThree(View miView){
+        TextView tv = findViewById(R.id.textView);
+        String value = tv.getText().toString();
+        tv.setText(value + "3");
+
+    }
+    public void onClickButtonFour(View miView){
+        TextView tv = findViewById(R.id.textView);
+        String value = tv.getText().toString();
+        tv.setText(value + "4");
+
+    }
+    public void onClickButtonFive(View miView){
+        TextView tv = findViewById(R.id.textView);
+        String value = tv.getText().toString();
+        tv.setText(value + "5");
+
+    }
+    public void onClickButtonSix(View miView){
+        TextView tv = findViewById(R.id.textView);
+        String value = tv.getText().toString();
+        tv.setText(value + "6");
+
+    }
+    public void onClickButtonSeven(View miView){
+        TextView tv = findViewById(R.id.textView);
+        String value = tv.getText().toString();
+        tv.setText(value + "7");
+
+    }
+    public void onClickButtonEight(View miView){
+        TextView tv = findViewById(R.id.textView);
+        String value = tv.getText().toString();
+        tv.setText(value + "8");
+
+    }
+    public void onClickButtonNine(View miView){
+        TextView tv = findViewById(R.id.textView);
+        String value = tv.getText().toString();
+        tv.setText(value + "9");
+
+    }
+    public void onClickButtonZero(View miView){
+        TextView tv = findViewById(R.id.textView);
+        String value = tv.getText().toString();
+        tv.setText(value + "0");
+
+    }
+    public void onClickOperacionCapturaNumero1(View miView){
+        TextView tv = (TextView) findViewById(R.id.textView);
+        numero1= Double.parseDouble(tv.getText().toString());
+        tv.setText("");
+
+    }
+    public void onClickSuma(View miView){
+        operador="+";
+        onClickOperacionCapturaNumero1(miView);
+
+    }
+    public void onClickResta(View miView){
+        operador="-";
+        onClickOperacionCapturaNumero1(miView);
+
+    }
+    public void onClicDivicion(View miView){
+        operador="/";
+        onClickOperacionCapturaNumero1(miView);
+
+    }public void onClickMultiplicacion(View miView){
+        operador="*";
+        onClickOperacionCapturaNumero1(miView);
+
+    }
+    public void onClickCuadrado(View miView){
+        TextView tv = findViewById(R.id.textView);
+        onClickOperacionCapturaNumero1(miView);
+        resultado=numero1 * numero1;
+        tv.setText(resultado.toString());
+    }
+    public void onClickPerimetroRadio(View miView){
+        TextView tv = findViewById(R.id.textView);
+        onClickOperacionCapturaNumero1(miView);
+        resultado=Math.PI * numero1 * 2;
+        tv.setText(resultado.toString());
+    }
+    public void onClickPerimetroDiametro(View miView){
+        TextView tv = findViewById(R.id.textView);
+        onClickOperacionCapturaNumero1(miView);
+        resultado=Math.PI * numero1;
+        tv.setText(resultado.toString());
+    }
+    public void onClickBorrar(View miView){
+        TextView tv = findViewById(R.id.textView);
+        String value = tv.getText().toString();
+        tv.setText(" ");
+    }
+    public void onClickIgual(View miView){
+        TextView tv= (TextView) findViewById(R.id.textView);
+        numero2 = Double.parseDouble(tv.getText().toString());
+
+        try{
+            if (operador.equals("+")){
+                resultado = numero1 + numero2;
             }
-        });
-    }
+            else if (operador.equals("-")){
+                resultado = numero1 - numero2;
 
-    private void abrirSuma() {
-        Intent intent = new Intent( this , ActivitySuma.class );
-        startActivity( intent );
-    }
+            }
+            else if (operador.equals("/")){
+                resultado = numero1 / numero2;
 
+            }
+            else if (operador.equals("*")){
+                resultado = numero1 * numero2;
+            }
+            tv.setText(resultado.toString());
+        }catch (NumberFormatException nfe){
+            Toast.makeText( this, "Numero Incorrecto", LENGTH_SHORT).show();
+        }
+    }
+    public void onClickButtonpoint(View miView){
+        TextView tv = findViewById(R.id.textView);
+        String value = tv.getText().toString();
+        tv.setText(value + ".");
+    }
 }
 

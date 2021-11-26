@@ -10,9 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HolaMundoAndroid">
         <activity
-            android:name=".ActivitySuma"
-            android:exported="false" />
-        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
